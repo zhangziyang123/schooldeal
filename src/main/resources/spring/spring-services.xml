@@ -12,104 +12,15 @@
     http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 	<context:annotation-config />
 	<!--扫描注解 -->
-	<context:component-scan base-package="com.ai.rgshcore.service.impl" />
+	<context:component-scan base-package="com.schooldeal.service.impl" />
 	<!-- 支持异步方法执行 -->
 	<task:annotation-driven />
 	<!-- 当 Spring 容器启动时，AutowiredAnnotationBeanPostProcessor 将扫描 Spring 容器中所有 Bean，当发现 Bean 中拥有@Autowired 注释时就找到和其匹配（默认按类型匹配）的
 		Bean，并注入到对应的地方中去。 -->
-	<bean id="baseService" class="com.ai.rgshcore.service.impl.BaseServiceImpl">
-		<property name="baseDao" ref="baseDao" />
-		<!-- <property name="baseDaoDataTang" ref="baseDaoDataTang" /> -->
-<!-- 		<property name="baseDaoSendMess" ref="baseDaoSendMess" /> -->
-		<!-- <property name="baseDaoOracle43" ref="baseDaoOracle43" /> -->
-	</bean>
-
-	<!-- 新加入的菜单页面 -->
-	<bean id="adoMenuService" class="com.ai.rgshcore.service.impl.AdoMenuServiceImpl" parent="baseService">
-	</bean>
-	<!-- 数据批量导入 -->
-	<bean id="extractOracleService" class="com.ai.rgshcore.service.impl.ExtractOracleServiceImp" parent="baseService">
-	</bean>
-	<!-- 数据批量导入结束 -->
-
-	<!-- 发短信 -->
-	<bean id="sendMessageService" class="com.ai.rgshcore.service.impl.SendMessageServiceImpl" parent="baseService">
-		<!-- <property name="baseDaoSendMess" ref="baseDaoSendMess" /> -->
-	</bean>
-	<!-- 发短信 -->
-	<bean id="loginService" class="com.ai.rgshcore.service.impl.LoginServiceImpl" parent="baseService">
+	<bean id="baseService" class="com.schooldeal.service.impl.BaseServiceImpl">
 		<property name="baseDao" ref="baseDao" />
 	</bean>
-	<!-- 抢单 -->
-	<!-- <bean id="qdServiceImpl" class="com.ai.rgshcore.service.impl.QDServiceImpl" parent="baseService">
-		<property name="blackListService" ref="blackListService" />
-	</bean> -->
-
-	
 
 
-	<bean id="taskLogService" class="com.ai.rgshcore.service.impl.TaskLogServiceImpl" parent="baseService" />
-
-
-	<bean id="userOperLogService" class="com.ai.rgshcore.service.impl.UserOperLogServiceImpl" parent="baseService" />
-
-
-	<bean id="selectDataService" class="com.ai.rgshcore.service.impl.SelectDataServiceImpl" parent="baseService" />
-
-
-
-
-	<bean id="cfgTaskService" class="com.ai.rgshcore.service.impl.CfgTaskServiceImpl" parent="baseService" />
-	
-	<bean id="springApplication" class="com.ai.rgshcore.util.SpringApplicationUtil" />
-
-
-
-	<bean id="tempSendMessageService" class="com.ai.rgshcore.service.impl.TempSendMessageServiceImpl" parent="baseService" />
-
-
-
-
-	<bean id="otherNetMsgService" class="com.ai.rgshcore.service.impl.OtherNetMsgServiceImpl" parent="baseService" />
-
-
-	<bean id="stsDataService" class="com.ai.rgshcore.service.impl.StsDataServiceImpl" parent="baseService" />
-
-
-
-
-	
-
-	
-
-	
-
-
-
-	<bean id="userManage" class="com.ai.rgshcore.service.impl.UserManageImpl" parent="baseService">
-	</bean>
-
-	<bean id="roleManage" class="com.ai.rgshcore.service.impl.RoleManageImpl" parent="baseService">
-	</bean>
-
-	<bean id="organizeManage" class="com.ai.rgshcore.service.impl.OrganizeManageImpl" parent="baseService">
-	</bean>
-
-	<bean id="menuManage" class="com.ai.rgshcore.service.impl.MenuManageImpl" parent="baseService">
-
-	</bean>
-	<bean id="refreshCacheService" class="com.ai.rgshcore.service.impl.RefreshCacheServiceImpl" parent="baseService">
-	</bean>
-
-	 <bean id="systemManageService" class="com.ai.rgshcore.service.impl.SystemManageImpl" parent="baseService">
-	 </bean>
-	<bean id="saleCardOrderServive" class="com.ai.rgshcore.service.impl.saleCardOrderServiceImpl" parent="baseService">
-		<property name="sendMessageService" ref="sendMessageService"></property>
-	</bean>
-	<bean id="saleCardOrderServive2" class="com.ai.rgshcore.service.impl.SaleCardOrderService2Impl" parent="baseService">
-		<property name="sendMessageService" ref="sendMessageService"></property>
-	</bean>
-	<bean id="saleCardOrderServive3" class="com.ai.rgshcore.service.impl.SaleCardOrderService3Impl" parent="baseService">
-	</bean>
 	
 </beans>
