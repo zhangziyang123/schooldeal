@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<idref bean="baseService" />
+				<idref bean="asyncServiceImpl" />
+				<idref bean="transactionService" />
+				<idref bean="yhxxzhcxService" />
+				<idref bean="accountServiceManage" />
+				<idref bean="accountManage" />
+				<idref bean="userManage" />
+				<idref bean="appPermission" />
+				<idref bean="roleManage" />
+				<idref bean="organizeManage" />
+				<idref bean="menuManage" />
+				<idref bean="dataTangService" />
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<idref bean="transactionInterceptor" />
+				<idref bean="transactionInterceptorDataTang" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="find*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="search*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="query*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="count*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED,-Exception</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="transactionInterceptorDataTang" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManagerDataTang" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="find*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="search*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="query*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="count*">PROPAGATION_SUPPORTS,-Exception,readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED,-Exception</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManagerDataTang" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceDataTang" />
+	</bean> -->
+
+</beans>
