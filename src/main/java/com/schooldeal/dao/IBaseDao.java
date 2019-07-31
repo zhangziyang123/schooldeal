@@ -8,19 +8,19 @@ import org.springframework.dao.DataAccessException;
 import com.schooldeal.bean.InputObject;
 
 /**
- * Dao½Ó¿Ú»ùÀà
+ * Daoæ¥å£åŸºç±»
  */
 public interface IBaseDao {
 	  public static final String MYBATIS_DAO = "daoMybatis";
 	  /**
-	   * ²éÑ¯È«²¿Êı¾İ  list
+	   * æŸ¥è¯¢å…¨éƒ¨æ•°æ®  list
 	   * @param namespace
 	   * @param statement
 	   * @return
 	   */
 	  public  List<Map<String,Object>> query(String namespace,String statement);
 	  /**
-	   * ·ÖÒ³²éÑ¯   list
+	   * åˆ†é¡µæŸ¥è¯¢   list
 	   * @param namespace
 	   * @param statement
 	   * @param limit
@@ -29,7 +29,7 @@ public interface IBaseDao {
 	   */
 	  public  List<Map<String,Object>> query(String namespace,String statement,int limit, int offset);
       /**
-       * ¸ù¾İÌõ¼ş²éÑ¯   list
+       * æ ¹æ®æ¡ä»¶æŸ¥è¯¢   list
        * @param namespace
        * @param statement
        * @param paramData
@@ -37,7 +37,7 @@ public interface IBaseDao {
        */
 	  public  List<Map<String,Object>> query(String namespace,String statement, Map<String,Object> paramData);
       /**
-       * ¸ù¾İÌõ¼ş·ÖÒ³²éÑ¯
+       * æ ¹æ®æ¡ä»¶åˆ†é¡µæŸ¥è¯¢
        * @param namespace
        * @param statement
        * @param paramData
@@ -47,14 +47,14 @@ public interface IBaseDao {
        */
 	  public  List<Map<String,Object>> query(String namespace,String statement,Map<String,Object> paramData, int limit, int offset);
       /**
-       * ²éÑ¯×ÜÊı
+       * æŸ¥è¯¢æ€»æ•°
        * @param namespace
        * @param statement
        * @return
        */
 	  public  int count(String namespace,String statement);
       /**
-       * ¸ù¾İÌõ¼ş²éÑ¯×ÜÊı 
+       * æ ¹æ®æ¡ä»¶æŸ¥è¯¢æ€»æ•° 
        * @param namespace
        * @param statement
        * @param paramData
@@ -62,7 +62,7 @@ public interface IBaseDao {
        */
 	  public  int count(String namespace,String statement, Map<String,Object> paramData);
       /**
-       * ¸ù¾İÌõ¼ş²éÑ¯ Map
+       * æ ¹æ®æ¡ä»¶æŸ¥è¯¢ Map
        * @param namespace
        * @param statement
        * @param paramData
@@ -103,8 +103,8 @@ public interface IBaseDao {
 	  public void batchDeleteOrm( String namespace,String statement, final InputObject in);
 	  
 	  /**
-	     * ÅúÁ¿¸üĞÂ
-	     * ·½·¨ÃèÊö£ºÅúÁ¿¸üĞÂ£¨Ğ§ÂÊÃ»ÓĞÔÚÅäÖÃÎÄ¼şÉÏµÄ¸ß£©½¨ÒéÔÚÅäÖÃÎÄ¼şÖĞÅäÖÃ
+	     * æ‰¹é‡æ›´æ–°
+	     * æ–¹æ³•æè¿°ï¼šæ‰¹é‡æ›´æ–°ï¼ˆæ•ˆç‡æ²¡æœ‰åœ¨é…ç½®æ–‡ä»¶ä¸Šçš„é«˜ï¼‰å»ºè®®åœ¨é…ç½®æ–‡ä»¶ä¸­é…ç½®
 	     * @param statementName
 	     * @param list
 	     * @throws DataAccessException
@@ -112,22 +112,22 @@ public interface IBaseDao {
 	     */
 	  public void batchUpdate( String namespace,String statement, final InputObject in)  throws DataAccessException;
 	  /**
-	     * ÅúÁ¿²åÈë
-	     * ·½·¨ÃèÊö£ºÅúÁ¿²åÈë£¨Ğ§ÂÊÃ»ÓĞÔÚÅäÖÃÎÄ¼şÉÏµÄ¸ß£©½¨ÒéÔÚÅäÖÃÎÄ¼şÖĞÅäÖÃ
+	     * æ‰¹é‡æ’å…¥
+	     * æ–¹æ³•æè¿°ï¼šæ‰¹é‡æ’å…¥ï¼ˆæ•ˆç‡æ²¡æœ‰åœ¨é…ç½®æ–‡ä»¶ä¸Šçš„é«˜ï¼‰å»ºè®®åœ¨é…ç½®æ–‡ä»¶ä¸­é…ç½®
 	     * @param statement
 	     * @param list
 	     * @throws DataAccessException
-	     * @date 2013-4-3 ÉÏÎç11:27:39
+	     * @date 2013-4-3 ä¸Šåˆ11:27:39
 	     * @comment
 	     */
 	    public void batchInsert(String namespace,String statement, final InputObject in)  throws DataAccessException;
 	    /**
-	     * ÅúÁ¿É¾³ı
-	     * ·½·¨ÃèÊö£ºÅúÁ¿É¾³ı£¨Ğ§ÂÊÃ»ÓĞÔÚÅäÖÃÎÄ¼şÉÏµÄ¸ß£© ½¨ÒéÔÚÅäÖÃÎÄ¼şÖĞÅäÖÃ
+	     * æ‰¹é‡åˆ é™¤
+	     * æ–¹æ³•æè¿°ï¼šæ‰¹é‡åˆ é™¤ï¼ˆæ•ˆç‡æ²¡æœ‰åœ¨é…ç½®æ–‡ä»¶ä¸Šçš„é«˜ï¼‰ å»ºè®®åœ¨é…ç½®æ–‡ä»¶ä¸­é…ç½®
 	     * @param statement
 	     * @param in
 	     * @throws DataAccessException
-	     * @date 2013-4-3 ÉÏÎç11:29:53
+	     * @date 2013-4-3 ä¸Šåˆ11:29:53
 	     * @comment
 	     */
 	    public void batchDelete( String namespace,String statement, final InputObject in)  throws DataAccessException;

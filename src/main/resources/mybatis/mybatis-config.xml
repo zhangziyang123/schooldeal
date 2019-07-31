@@ -14,6 +14,7 @@
 		/> </settings> -->
 	<!-- 为类起个别名 -->
 	<typeAliases> <!-- <typeAlias type="com.ai.rgshcore.bean.Student" alias="Student" /> -->
+	    <typeAlias type="com.schooldeal.bean.Garbage" alias="garbage"/>
 	</typeAliases>
 	<!-- <plugins> <plugin interceptor="com.google.code.shardbatis.plugin.shardplugin">
 		<property name="shardingconfig" value="shard_config.xml" /> </plugin> </plugins> -->
@@ -21,6 +22,7 @@
 	<mappers>
 		
 		<mapper resource="mybatis/orm/test.xml"/>
+		<mapper resource="mybatis/orm/garbage.xml"/>
 	</mappers>
 
 </configuration>

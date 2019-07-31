@@ -110,16 +110,16 @@ public class EncryptionUtil {
 
 	public static void main(String[] args) throws Exception {
 //		System.out.println(byte2hex(encode("OL".getBytes(),Constants.DBKEYEES.getBytes())));
-//		System.out.println(byte2hex(encode("nK%17p*-GfTd".getBytes(),Constants.DBKEYEES.getBytes())));
+		System.out.println(byte2hex(encode("root".getBytes(),Constants.DBKEYEES.getBytes())));
 //		String ipaddrsss = "jdbc:mysql://192.168.156.105:20031/ddglcore?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowMultiQueries=true&useOldAliasMetadataBehavior=true";
 //		System.out.println(byte2hex(encode(ipaddrsss.getBytes(),Constants.DBKEYEES.getBytes())));
 //
 //
-//		System.out.println(byte2hex(encode("1qaz!QAZ".getBytes(),"0af5b157".getBytes())));
-		//String rtnStr=byte2hex(encode("jdbc:mysql://192.168.156.105:20031/ddglcore?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowMultiQueries=true&useOldAliasMetadataBehavior=true".getBytes(),
-//				Constants.DBKEYEES.getBytes()));
+		System.out.println(byte2hex(encode("root".getBytes(),"0af5b157".getBytes())));
+		String rtnStr=byte2hex(encode("jdbc:mysql://localhost:3306/oa?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowMultiQueries=true&useOldAliasMetadataBehavior=true".getBytes(),
+				Constants.DBKEYEES.getBytes()));
 		//String srcStr=new String(decode(hex2byte("rO0ABXciABAnMB/BnGa2wSYFeoNVXUG4vaTpjK0hxCaO34P2OQGILQ=="), Constants.DBKEYEES.getBytes()));
-		//System.out.println("---="+srcStr);
+		System.out.println("---="+rtnStr);
 		
 	}
 }

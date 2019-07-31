@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Garbage">
+
+	<resultMap id="BaseResultMap" type="garbage" >
+    <result column="PROV_CODE" property="provCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="SIM_NO" property="simNo" jdbcType="VARCHAR" />
+    <result column="PRESET_SVCNUM" property="presetSvcnum" jdbcType="VARCHAR" />
+    <result column="HSS" property="hss" jdbcType="VARCHAR" />
+    <result column="SALE_CHANNEL" property="saleChannel" jdbcType="VARCHAR" />
+    <result column="WRITE_CARD_ID" property="writeCardId" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="DATE" />
+    <result column="EXT_1" property="ext1" jdbcType="VARCHAR" />
+    <result column="EXT_2" property="ext2" jdbcType="VARCHAR" />
+    <result column="EXT_3" property="ext3" jdbcType="VARCHAR" />
+    <result column="EXT_4" property="ext4" jdbcType="VARCHAR" />
+    <result column="EXT_5" property="ext5" jdbcType="VARCHAR" />
+    <result column="REAL_OCCUPAT_TIME" jdbcType="DATE" property="realOccupatTime" />
+    <result column="CITY_NAME" property="cityName" jdbcType="VARCHAR" />
+    <result column="PROV_NAME" property="provName" jdbcType="VARCHAR" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+
+  </resultMap>
+  <select id="queryGarbage" resultType="java.util.Map" parameterType="java.util.Map">
+  select name,type from garbage where name like CONCAT('%',CONCAT(#{name},'%'))
+  </select>
+  <select id="queryGarbageByPicture" resultType="java.util.Map" parameterType="java.util.Map">
+  select name,type from garbage 
+  <trim prefix="where (" suffix=")" prefixOverrides="or" >
+  <if test="keyword0 != null and keyword0 != '' and keyword0 != 'null'">
+ or name like 
+  CONCAT('%',CONCAT(#{keyword0},'%'))
+  </if>
+   <if test="keyword1 != null and keyword1 != '' and keyword1 != 'null'">
+  or name like 
+  CONCAT('%',CONCAT(#{keyword1},'%'))
+  </if>
+   <if test="keyword2 != null and keyword2 != '' and keyword2 != 'null'">
+ or name like 
+  CONCAT('%',CONCAT(#{keyword2},'%'))
+  </if>
+   <if test="keyword3 != null and keyword3 != '' and keyword3 != 'null'">
+ or name like 
+  CONCAT('%',CONCAT(#{keyword3},'%'))
+  </if>
+   <if test="keyword4 != null and keyword4 != '' and keyword4 != 'null'">
+  or name like 
+  CONCAT('%',CONCAT(#{keyword4},'%'))
+  </if>
+  </trim>
+  </select>
+  
+  <insert id="insertGarbage" parameterType="java.util.List">
+  insert into non_garbage (name) values
+  
+  <foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.keyword}
+			
+			)
+		</foreach>
+  </insert>
+</mapper>

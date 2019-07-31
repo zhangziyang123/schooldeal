@@ -168,14 +168,14 @@ public class BaseDaoImpl implements IBaseDao {
 	                for (int i = 0, n = list.size(); i < n; i++) {
 	                    session.update(changeStatement(namespace,statement), list.get(i));
 	                    if (i!=0 && i % size == 0 ) {
-	                        //ÊÖ¶¯Ã¿1000¸öÒ»Ìá½»£¬Ìá½»ºóÎÞ·¨»Ø¹ö
+	                        //æ‰‹åŠ¨æ¯1000ä¸ªä¸€æäº¤ï¼Œæäº¤åŽæ— æ³•å›žæ»š
 	                        session.commit();
-	                        //ÇåÀí»º´æ£¬·ÀÖ¹Òç³ö
+	                        //æ¸…ç†ç¼“å­˜ï¼Œé˜²æ­¢æº¢å‡º
 	                        session.clearCache();
 	                    }
 	                }
 	                session.commit();
-                 //ÇåÀí»º´æ£¬·ÀÖ¹Òç³ö
+                 //æ¸…ç†ç¼“å­˜ï¼Œé˜²æ­¢æº¢å‡º
                  session.clearCache();
 	            }
 	        }catch (Exception e){
@@ -194,14 +194,14 @@ public class BaseDaoImpl implements IBaseDao {
 	                for (int i = 0, n = list.size(); i < n; i++) {
 	                    session.insert(changeStatement(namespace,statement), list.get(i));
 	                    if (i!=0 && i % size == 0) {
-	                        //ÊÖ¶¯Ã¿1000¸öÒ»Ìá½»£¬Ìá½»ºóÎÞ·¨»Ø¹ö
+	                        //æ‰‹åŠ¨æ¯1000ä¸ªä¸€æäº¤ï¼Œæäº¤åŽæ— æ³•å›žæ»š
 	                        session.commit(); 
-	                        //ÇåÀí»º´æ£¬·ÀÖ¹Òç³ö
+	                        //æ¸…ç†ç¼“å­˜ï¼Œé˜²æ­¢æº¢å‡º
 	                        session.clearCache();
 	                    }
 	                }
 	                session.commit();
-                 //ÇåÀí»º´æ£¬·ÀÖ¹Òç³ö
+                 //æ¸…ç†ç¼“å­˜ï¼Œé˜²æ­¢æº¢å‡º
                  session.clearCache();
 	            }
 	        }catch (Exception e){
@@ -221,14 +221,14 @@ public class BaseDaoImpl implements IBaseDao {
 	                for (int i = 0, n = list.size(); i < n; i++) {
 	                	 session.delete(changeStatement(namespace,statement), list.get(i));
 	                    if (i!=0 &&  i % size == 0) {
-	                        //ÊÖ¶¯Ã¿1000¸öÒ»Ìá½»£¬Ìá½»ºóÎÞ·¨»Ø¹ö
+	                        //æ‰‹åŠ¨æ¯1000ä¸ªä¸€æäº¤ï¼Œæäº¤åŽæ— æ³•å›žæ»š
 	                        session.commit();
-	                        //ÇåÀí»º´æ£¬·ÀÖ¹Òç³ö
+	                        //æ¸…ç†ç¼“å­˜ï¼Œé˜²æ­¢æº¢å‡º
 	                        session.clearCache();
 	                    }
 	                }
 	                session.commit();
-                 //ÇåÀí»º´æ£¬·ÀÖ¹Òç³ö
+                 //æ¸…ç†ç¼“å­˜ï¼Œé˜²æ­¢æº¢å‡º
                  session.clearCache();
 	            }
 	        }catch (Exception e){
@@ -258,4 +258,7 @@ public class BaseDaoImpl implements IBaseDao {
 		sqlSessionTemplate.delete(changeStatement(namespace,statement), in.getBeans());
 	}
 	
+	public <T> List<T> queryForList(String sqlId, Map<String, Object> params, Class<T> cls) {
+		return getSqlSessionTemplate().selectList(sqlId, params);
+	}
 }
