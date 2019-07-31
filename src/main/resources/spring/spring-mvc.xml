@@ -55,6 +55,11 @@
 					</array>
 				</property>
 			</bean>
+			<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+				<property name="prifix" value="/WEB-INF/views"></property>
+				<property name="suffix" value=".jsp"></property>
+			</bean>
+			
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 </beans>
